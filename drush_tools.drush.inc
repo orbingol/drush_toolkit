@@ -12,26 +12,26 @@ function drush_tools_drush_command() {
 
   $items = array();
 
-  $items['dt-load-node'] = array(
+  $items['drush-tools-load-node'] = array(
     'description' => 'Dumps node array elements to screen',
-    'alias' => array('dt-node'),
+    'alias' => array('dt-load-node'),
     'arguments' => array(
       'nid' => 'Node ID to load',
     ),
   );
 
-  $items['dt-load-node-by-ct'] = array(
+  $items['drush-tools-load-node-by-ct'] = array(
     'description' => 'Load nodes by content types and count characters in the body field.',
-    'alias' => array('dt-node-ct'),
+    'alias' => array('dt-load-node-ct'),
     'arguments' => array(
       'ct' => 'Machine name of the content type to load',
       'lang' => 'Language to be counted. Default: und. Possible values: tr, en, fr',
     ),
   );
 
-  $items['dt-load-user'] = array(
+  $items['drush-tools-load-user'] = array(
     'description' => 'Dumps user array elements to screen',
-    'alias' => array('dt-user'),
+    'alias' => array('dt-load-user'),
     'arguments' => array(
       'uid' => 'User ID or user name to load',
     ),
@@ -43,7 +43,7 @@ function drush_tools_drush_command() {
 /**
  * Drush command to get field details of a node entity.
  */
-function drush_dt_load_node($nid = NULL) {
+function drush_drush_tools_load_node($nid = NULL) {
 
   if ($nid == NULL || !is_numeric($nid)) {
     // drush_set_error always returns false
@@ -66,7 +66,7 @@ function drush_dt_load_node($nid = NULL) {
 /**
  * Drush command to get character count of the body field for selected content types.
  */
-function drush_dt_load_node_by_ct($ct = NULL, $lang = 'und') {
+function drush_drush_tools_load_node_by_ct($ct = NULL, $lang = 'und') {
 
   if ($ct == NULL) {
     // drush_set_error always returns false
@@ -142,7 +142,7 @@ function drush_dt_load_node_by_ct($ct = NULL, $lang = 'und') {
 /**
  * Drush command to get field details of a user entity.
  */
-function drush_dt_load_user($uid = NULL) {
+function drush_drush_tools_load_user($uid = NULL) {
 
   if ($uid == NULL) {
     // drush_set_error always returns false
