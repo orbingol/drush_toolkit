@@ -1,5 +1,5 @@
-name = ORB Drush Utilities
-description = Several command line utilies to make your life easier.
+name = Drush Tools
+description = Several Drush commands to  make your life easier.
 core = 7.x
 
 files[] = drush_tools.drush.inc
