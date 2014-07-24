@@ -1,5 +1,5 @@
-name = Drush Tools
+name = Drush Admin Tools
 description = Several Drush commands to  make your life easier.
 core = 7.x
 
-files[] = drush_tools.drush.inc
+files[] = admin_tools.drush.inc
