@@ -2,4 +2,4 @@ name = ORB Drush Utilities
 description = Several command line utilies to make your life easier.
 core = 7.x
 
-files[] = orb.drush.inc
+files[] = drush_tools.drush.inc
