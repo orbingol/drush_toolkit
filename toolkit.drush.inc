@@ -9,12 +9,14 @@
  * Implementation of hook_drush_help().
  */
 function toolkit_drush_help($section) {
+  
   switch ($section) {
     case 'meta:toolkit:title':
       return dt('Toolkit commands');
     case 'meta:toolkit:summary':
       return dt('Lifesaver Drush commands for developers.');
   }
+
 }
 
 /**
