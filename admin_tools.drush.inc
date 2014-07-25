@@ -8,30 +8,30 @@
 /**
  * Implementation of hook_drush_command().
  */
-function admin_tools_drush_command() {
+function toolkit_drush_command() {
 
   $items = array();
 
-  $items['admin-tools-load-node'] = array(
+  $items['toolkit-load-node'] = array(
     'description' => 'Dumps node array elements to screen',
-    'alias' => array('load-node'),
+    'alias' => array('tln', 'tnl'),
     'arguments' => array(
       'nid' => 'Node ID to load',
     ),
   );
 
-  $items['admin-tools-load-node-by-ct'] = array(
+  $items['toolkit-load-node-by-ct'] = array(
     'description' => 'Load nodes by content types and count characters in the body field.',
-    'alias' => array('load-node-ct'),
+    'alias' => array('tln-ct', 'tnl-ct'),
     'arguments' => array(
       'ct' => 'Machine name of the content type to load',
       'lang' => 'Language to be counted. Default: und. Possible values: tr, en, fr',
     ),
   );
 
-  $items['admin-tools-load-user'] = array(
+  $items['toolkit-load-user'] = array(
     'description' => 'Dumps user array elements to screen',
-    'alias' => array('load-user'),
+    'alias' => array('tlu', 'tul'),
     'arguments' => array(
       'uid' => 'User ID or user name to load',
     ),
@@ -43,7 +43,7 @@ function admin_tools_drush_command() {
 /**
  * Drush command to get field details of a node entity.
  */
-function drush_admin_tools_load_node($nid = NULL) {
+function drush_toolkit_load_node($nid = NULL) {
 
   if ($nid == NULL || !is_numeric($nid)) {
     // drush_set_error always returns false
@@ -66,7 +66,7 @@ function drush_admin_tools_load_node($nid = NULL) {
 /**
  * Drush command to get character count of the body field for selected content types.
  */
-function drush_admin_tools_load_node_by_ct($ct = NULL, $lang = 'und') {
+function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 
   if ($ct == NULL) {
     // drush_set_error always returns false
@@ -142,7 +142,7 @@ function drush_admin_tools_load_node_by_ct($ct = NULL, $lang = 'und') {
 /**
  * Drush command to get field details of a user entity.
  */
-function drush_admin_tools_load_user($uid = NULL) {
+function drush_toolkit_load_user($uid = NULL) {
 
   if ($uid == NULL) {
     // drush_set_error always returns false
