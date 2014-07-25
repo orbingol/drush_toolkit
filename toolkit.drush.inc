@@ -14,6 +14,7 @@ function toolkit_drush_command() {
 
   $items['toolkit-load-node'] = array(
     'description' => 'Dumps node array elements to screen',
+    'callback' => 'drush_toolkit_load_node',
     'aliases' => array('tln', 'tnl'),
     'arguments' => array(
       'nid' => 'Node ID to load',
@@ -22,6 +23,7 @@ function toolkit_drush_command() {
 
   $items['toolkit-load-node-by-ct'] = array(
     'description' => 'Load nodes by content types and count characters in the body field.',
+    'callback' => 'drush_toolkit_load_node_by_ct',
     'aliases' => array('tln-ct', 'tnl-ct'),
     'arguments' => array(
       'ct' => 'Machine name of the content type to load',
@@ -31,6 +33,7 @@ function toolkit_drush_command() {
 
   $items['toolkit-load-user'] = array(
     'description' => 'Dumps user array elements to screen',
+    'callback' => 'drush_toolkit_load_user',
     'aliases' => array('tlu', 'tul'),
     'arguments' => array(
       'uid' => 'User ID or user name to load',
