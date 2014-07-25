@@ -68,7 +68,7 @@ function toolkit_drush_command() {
   );
 
   return $items;
-  
+
 }
 
 /**
@@ -78,7 +78,7 @@ function drush_toolkit_load_node($nid = NULL) {
 
   if ($nid == NULL || !is_numeric($nid)) {
     // drush_set_error always returns false
-    return drush_set_error('error', t('@nid is not a valid node ID', array('@nid' => $nid)));
+    return drush_set_error('error', dt('@nid is not a valid node ID', array('@nid' => $nid)));
   }
 
   // Load node by node ID value
@@ -89,7 +89,7 @@ function drush_toolkit_load_node($nid = NULL) {
     drush_print_r($node);
   }
   else {
-    return drush_set_error('error', t('Node @nid is not available', array('@nid' => $nid)));
+    return drush_set_error('error', dt('Node @nid is not available', array('@nid' => $nid)));
   }
 
 }
@@ -101,7 +101,7 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 
   if ($ct == NULL) {
     // drush_set_error always returns false
-    return drush_set_error('error', t('No content type was selected.'));
+    return drush_set_error('error', dt('No content type was selected.'));
   }
 
   // Initialize counters
@@ -118,11 +118,11 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
   // If there are no nodes, put a warning and exit
   if (empty($nodes)) {
     // drush_set_error always returns false
-    return drush_set_error('warning', t('No nodes are present in @content_type', array('@content_type' => $ct)));
+    return drush_set_error('warning', dt('No nodes are present in @content_type', array('@content_type' => $ct)));
   }
 
   // Print some informative messages about language
-  drush_print(t('Processing language "@lang"', array('@lang' => $lang)));
+  drush_print(dt('Processing language "@lang"', array('@lang' => $lang)));
 
   // Loop through all loaded nodes
   foreach ($nodes as $n) {
@@ -155,18 +155,18 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
   }
 
   // Print the findings
-  drush_print(t('Total @content_type published: @count', array(
+  drush_print(dt('Total @content_type published: @count', array(
     '@content_type' => $ct,
     '@count' => (int) $count_published
   )));
-  drush_print(t('Total @content_type unpublished: @count', array(
+  drush_print(dt('Total @content_type unpublished: @count', array(
     '@content_type' => $ct,
     '@count' => (int) $count_unpublished
   )));
-  drush_print(t('Total characters (published with tags): @length', array('@length' => $length_published)));
-  drush_print(t('Total characters (published with no tags): @length', array('@length' => $length_published_notags)));
-  drush_print(t('Total characters (unpublished with tags): @length', array('@length' => $length_unpublished)));
-  drush_print(t('Total characters (unpublished with no tags): @length', array('@length' => $length_unpublished_notags)));
+  drush_print(dt('Total characters (published with tags): @length', array('@length' => $length_published)));
+  drush_print(dt('Total characters (published with no tags): @length', array('@length' => $length_published_notags)));
+  drush_print(dt('Total characters (unpublished with tags): @length', array('@length' => $length_unpublished)));
+  drush_print(dt('Total characters (unpublished with no tags): @length', array('@length' => $length_unpublished_notags)));
 
 }
 
@@ -177,7 +177,7 @@ function drush_toolkit_load_user($uid = NULL) {
 
   if ($uid == NULL) {
     // drush_set_error always returns false
-    return drush_set_error('error', t('Specify User ID or user name to load'));
+    return drush_set_error('error', dt('Specify User ID or user name to load'));
   }
 
   if (is_numeric($uid) && $uid > 0) {
@@ -194,7 +194,7 @@ function drush_toolkit_load_user($uid = NULL) {
     drush_print_r($user);
   }
   else {
-    return drush_set_error('error', t('No such user (@uid)', array('@uid' => $uid)));
+    return drush_set_error('error', dt('No such user (@uid)', array('@uid' => $uid)));
   }
 
 }
