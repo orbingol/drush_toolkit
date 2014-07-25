@@ -19,6 +19,9 @@ function toolkit_drush_command() {
     'arguments' => array(
       'nid' => 'Node ID to load',
     ),
+    'examples' => array(
+      'drush tnl 1' => 'Loads node, having nid=1.',
+    ),
   );
 
   $items['toolkit-load-node-by-ct'] = array(
@@ -29,6 +32,9 @@ function toolkit_drush_command() {
       'ct' => 'Machine name of the content type to load',
       'lang' => 'Language to be counted. Default: und. Possible values: tr, en, fr',
     ),
+    'examples' => array(
+      'drush tnl-ct article en' => 'Counts all characters in English "article" contents.',
+    ),
   );
 
   $items['toolkit-load-user'] = array(
@@ -37,6 +43,10 @@ function toolkit_drush_command() {
     'aliases' => array('tlu', 'tul'),
     'arguments' => array(
       'uid' => 'User ID or user name to load',
+    ),
+    'examples' => array(
+      'drush tul 1' => 'Loads user, having uid of "1".',
+      'drush tul admin' => 'Loads user, having username of "admin".',
     ),
   );
 
