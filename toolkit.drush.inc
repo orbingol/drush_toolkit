@@ -76,7 +76,7 @@ function toolkit_drush_command() {
  */
 function drush_toolkit_load_node($nid = NULL) {
 
-  if ($nid == NULL || !is_numeric($nid)) {
+  if (empty($nid) || !is_numeric($nid)) {
     // drush_set_error always returns false
     return drush_set_error('error', dt('@nid is not a valid node ID', array('@nid' => $nid)));
   }
@@ -99,7 +99,7 @@ function drush_toolkit_load_node($nid = NULL) {
  */
 function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 
-  if ($ct == NULL) {
+  if (empty($ct)) {
     // drush_set_error always returns false
     return drush_set_error('error', dt('No content type was selected.'));
   }
@@ -175,7 +175,7 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
  */
 function drush_toolkit_load_user($uid = NULL) {
 
-  if ($uid == NULL) {
+  if (empty($uid)) {
     // drush_set_error always returns false
     return drush_set_error('error', dt('Specify User ID or user name to load'));
   }
