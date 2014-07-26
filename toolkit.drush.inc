@@ -35,7 +35,7 @@ function toolkit_drush_command() {
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tnl 1' => 'Loads node, having nid=1.',
+      'drush tnl 1' => 'Loads node 1 and dumps the contents of the loaded node object.',
     ),
   );
 
@@ -49,7 +49,7 @@ function toolkit_drush_command() {
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tnl-ct article en' => 'Counts all characters in English "article" contents.',
+      'drush tnl-ct article en' => 'Counts all characters of the body field in English "article" contents.',
     ),
   );
 
@@ -62,8 +62,8 @@ function toolkit_drush_command() {
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tul 1' => 'Loads user, having uid of "1".',
-      'drush tul admin' => 'Loads user, having username of "admin".',
+      'drush tul 1' => 'Loads user ID 1 and dumps the contents of the loaded user object.',
+      'drush tul admin' => 'Loads user "admin" and dumps the contents of the loaded user object.',
     ),
   );
 
