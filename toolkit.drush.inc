@@ -27,7 +27,7 @@ function toolkit_drush_command() {
   $items = array();
 
   $items['load-node'] = array(
-    'description' => 'Dumps node array elements to screen',
+    'description' => 'Dumps node object to screen',
     'callback' => 'drush_toolkit_load_node',
     'aliases' => array('tln', 'tnl'),
     'arguments' => array(
@@ -40,7 +40,7 @@ function toolkit_drush_command() {
   );
 
   $items['load-node-by-ct'] = array(
-    'description' => 'Load nodes by content types and count characters in the body field.',
+    'description' => 'Count characters in the body field of all nodes for the chosen content type.',
     'callback' => 'drush_toolkit_load_node_by_ct',
     'aliases' => array('tln-ct', 'tnl-ct'),
     'arguments' => array(
@@ -54,7 +54,7 @@ function toolkit_drush_command() {
   );
 
   $items['load-user'] = array(
-    'description' => 'Dumps user array elements to screen',
+    'description' => 'Dumps user object to screen.',
     'callback' => 'drush_toolkit_load_user',
     'aliases' => array('tlu', 'tul'),
     'arguments' => array(
