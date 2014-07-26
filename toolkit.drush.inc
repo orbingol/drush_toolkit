@@ -44,7 +44,7 @@ function toolkit_drush_command() {
     'callback' => 'drush_toolkit_load_node_by_ct',
     'aliases' => array('tln-ct', 'tnl-ct'),
     'arguments' => array(
-      'ct' => 'Machine name of the content type to load',
+      'ct' => 'Content type to load (Note: Use a machine name)',
       'lang' => '(optional) Language to be counted. Default: und. Possible values: tr, en, fr',
     ),
     'required-arguments' => 1,
