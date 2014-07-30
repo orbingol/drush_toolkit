@@ -1,14 +1,24 @@
-# Drush Toolkit
+-- SUMMARY --
 
-This repository contains several lifesaver Drush commands.
+This is a simple Drush module containing several lifesaver Drush commands.
 
-## Requires
+* toolkit-load-node: Dumps node object to screen.
+* toolkit-load-node-by-ct: Count characters in the body field of all nodes for the chosen content type.
+* toolkit-load-user: Dumps user object to screen.
 
-* [Drupal](https://drupal.org)
-* [Drush](https://github.com/drush-ops/drush)
-
-## Tested on
+-- REQUIREMENTS --
 
 * Drupal 7.x
-* Drush 6.3.0
+* Drush 6.x (https://github.com/drush-ops/drush)
 
+-- INSTALLATION --
+
+Download the module (with its directory) to one of these directories:
+
+* ~/.drush
+* sites/all/drush
+* sites/{sitename}/drush
+
+-- USAGE --
+
+Please use "drush help {command name}" for details.
