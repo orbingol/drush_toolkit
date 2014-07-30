@@ -26,44 +26,44 @@ function toolkit_drush_command() {
 
   $items = array();
 
-  $items['load-node'] = array(
-    'description' => 'Dumps node object to screen',
+  $items['toolkit-load-node'] = array(
+    'description' => 'Dumps node object to screen.',
     'callback' => 'drush_toolkit_load_node',
-    'aliases' => array('tln', 'tnl'),
+    'aliases' => array('load-node', 'tln', 'tnl'),
     'arguments' => array(
       'nid' => 'Node ID to load',
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tnl 1' => 'Loads node 1 and dumps the contents of the loaded node object.',
+      'drush load-node 1' => 'Loads node 1 and dumps the contents of the loaded node object.',
     ),
   );
 
-  $items['load-node-by-ct'] = array(
+  $items['toolkit-load-node-by-ct'] = array(
     'description' => 'Count characters in the body field of all nodes for the chosen content type.',
     'callback' => 'drush_toolkit_load_node_by_ct',
-    'aliases' => array('tln-ct', 'tnl-ct'),
+    'aliases' => array('load-node-by-ct', 'tln-ct', 'tnl-ct'),
     'arguments' => array(
       'ct' => 'Content type to load (Note: Use a machine name)',
       'lang' => '(optional) Language to be counted. Default: und. Possible values: tr, en, fr',
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tnl-ct article en' => 'Counts all characters of the body field in English "article" contents.',
+      'drush load-node-by-ct article en' => 'Counts all characters of the body field in English "article" contents.',
     ),
   );
 
-  $items['load-user'] = array(
+  $items['toolkit-load-user'] = array(
     'description' => 'Dumps user object to screen.',
     'callback' => 'drush_toolkit_load_user',
-    'aliases' => array('tlu', 'tul'),
+    'aliases' => array('load-user', 'tlu', 'tul'),
     'arguments' => array(
       'uid' => 'User ID or user name to load',
     ),
     'required-arguments' => 1,
     'examples' => array(
-      'drush tul 1' => 'Loads user ID 1 and dumps the contents of the loaded user object.',
-      'drush tul admin' => 'Loads user "admin" and dumps the contents of the loaded user object.',
+      'drush load-user 1' => 'Loads user ID 1 and dumps the contents of the loaded user object.',
+      'drush load-user admin' => 'Loads user "admin" and dumps the contents of the loaded user object.',
     ),
   );
 
