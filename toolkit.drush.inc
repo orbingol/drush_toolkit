@@ -2,25 +2,28 @@
 
 /**
  * @file
- * Utility commands for Drush.
+ * Drush Toolkit module.
  */
 
 /**
- * Implementation of hook_drush_help().
+ * Implements hook_drush_help().
  */
 function toolkit_drush_help($section) {
 
   switch ($section) {
     case 'meta:toolkit:title':
       return dt('Toolkit commands');
+      break;
+
     case 'meta:toolkit:summary':
       return dt('Lifesaver Drush commands for developers.');
+      break;
   }
 
 }
 
 /**
- * Implementation of hook_drush_command().
+ * Implements hook_drush_command().
  */
 function toolkit_drush_command() {
 
@@ -72,20 +75,22 @@ function toolkit_drush_command() {
 }
 
 /**
- * Drush command to get field details of a node entity.
+ * Implements drush_hook_COMMAND().
+ *
+ * Get field details of a node entity.
  */
 function drush_toolkit_load_node($nid = NULL) {
 
   if (empty($nid) || !is_numeric($nid)) {
-    // drush_set_error always returns false
+    // drush_set_error always returns false.
     return drush_set_error('error', dt('@nid is not a valid node ID', array('@nid' => $nid)));
   }
 
-  // Load node by node ID value
+  // Load node by node ID value.
   $node = node_load($nid);
 
   if (!empty($node)) {
-    // Print the output
+    // Print the output.
     drush_print_r($node);
   }
   else {
@@ -95,16 +100,18 @@ function drush_toolkit_load_node($nid = NULL) {
 }
 
 /**
- * Drush command to get character count of the body field for selected content types.
+ * Implements drush_hook_COMMAND().
+ *
+ * Get character count of the body field for selected content types.
  */
 function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 
   if (empty($ct)) {
-    // drush_set_error always returns false
+    // drush_set_error always returns false.
     return drush_set_error('error', dt('No content type was selected.'));
   }
 
-  // Initialize counters
+  // Initialize counters.
   $count_published = 0;
   $count_unpublished = 0;
   $length_published = 0;
@@ -112,36 +119,33 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
   $length_unpublished = 0;
   $length_unpublished_notags = 0;
 
-  // Load all nodes by content type
+  // Load all nodes by content type.
   $nodes = node_load_multiple(array(), array('type' => $ct));
 
-  // If there are no nodes, put a warning and exit
+  // If there are no nodes, put a warning and exit.
   if (empty($nodes)) {
     // drush_set_error always returns false
     return drush_set_error('warning', dt('No nodes are present in @content_type', array('@content_type' => $ct)));
   }
 
-  // Print some informative messages about language
+  // Print some informative messages about language.
   drush_print(dt('Processing language "@lang"', array('@lang' => $lang)));
 
-  // Loop through all loaded nodes
+  // Loop through all loaded nodes.
   foreach ($nodes as $n) {
 
-    // Choose published nodes first
+    // Choose published nodes first and unpublished ones last.
     if ($n->status == 1) {
-
-      // Increase published nodes counter
+      // Increase published nodes counter.
       $count_published++;
-      // Measure the length of body
+      // Measure the length of body.
       $length_published += strlen($n->body[$lang][0]['value']);
-      // It is good to measure with no html tags
+      // It is good to measure with no html tags.
       $notags_body = strip_tags($n->body[$lang][0]['value']);
-      // Measure the length of body with no html tags
+      // Measure the length of body with no html tags.
       $length_published_notags += strlen($notags_body);
-
     }
-    else { // Process unpublished ones last
-
+    else {
       // Increase unpublished nodes counter
       $count_unpublished++;
       // Measure the length of body
@@ -150,7 +154,6 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
       $notags_body = strip_tags($n->body[$lang][0]['value']);
       // Measure the length of body with no html tags
       $length_unpublished_notags += strlen($notags_body);
-
     }
   }
 
@@ -171,26 +174,28 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 }
 
 /**
- * Drush command to get field details of a user entity.
+ * Implements drush_hook_COMMAND().
+ *
+ * Get field details of a user entity.
  */
 function drush_toolkit_load_user($uid = NULL) {
 
   if (empty($uid)) {
-    // drush_set_error always returns false
+    // drush_set_error always returns false.
     return drush_set_error('error', dt('Specify User ID or user name to load'));
   }
 
   if (is_numeric($uid) && $uid > 0) {
-    // Load user by user ID value
+    // Load user by user ID value.
     $user = user_load($uid);
   }
   else {
-    // Load user by user name
+    // Load user by user name.
     $user = user_load_by_name($uid);
   }
 
   if (!empty($user)) {
-    // Print the output
+    // Print the output.
     drush_print_r($user);
   }
   else {
