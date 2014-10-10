@@ -13,11 +13,9 @@ function toolkit_drush_help($section) {
   switch ($section) {
     case 'meta:toolkit:title':
       return dt('Toolkit commands');
-      break;
 
     case 'meta:toolkit:summary':
       return dt('Lifesaver Drush commands for developers.');
-      break;
   }
 
 }
@@ -124,7 +122,7 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
 
   // If there are no nodes, put a warning and exit.
   if (empty($nodes)) {
-    // drush_set_error always returns false
+    // drush_set_error always returns false.
     return drush_set_error('warning', dt('No nodes are present in @content_type', array('@content_type' => $ct)));
   }
 
@@ -146,25 +144,25 @@ function drush_toolkit_load_node_by_ct($ct = NULL, $lang = 'und') {
       $length_published_notags += strlen($notags_body);
     }
     else {
-      // Increase unpublished nodes counter
+      // Increase unpublished nodes counter.
       $count_unpublished++;
-      // Measure the length of body
+      // Measure the length of body.
       $length_unpublished = $length_unpublished + strlen($n->body[$lang][0]['value']);
-      // It is good to measure with no html tags
+      // It is good to measure with no html tags.
       $notags_body = strip_tags($n->body[$lang][0]['value']);
-      // Measure the length of body with no html tags
+      // Measure the length of body with no html tags.
       $length_unpublished_notags += strlen($notags_body);
     }
   }
 
-  // Print the findings
+  // Print the findings.
   drush_print(dt('Total @content_type published: @count', array(
     '@content_type' => $ct,
-    '@count' => (int) $count_published
+    '@count' => (int) $count_published,
   )));
   drush_print(dt('Total @content_type unpublished: @count', array(
     '@content_type' => $ct,
-    '@count' => (int) $count_unpublished
+    '@count' => (int) $count_unpublished,
   )));
   drush_print(dt('Total characters (published with tags): @length', array('@length' => $length_published)));
   drush_print(dt('Total characters (published with no tags): @length', array('@length' => $length_published_notags)));
