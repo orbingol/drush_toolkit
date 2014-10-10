@@ -2,9 +2,12 @@
 
 This is a simple Drush module containing several lifesaver Drush commands.
 
-* toolkit-load-node: Dumps node object to screen.
-* toolkit-load-node-by-ct: Count characters in the body field of all nodes for the chosen content type.
-* toolkit-load-user: Dumps user object to screen.
+* toolkit-load-node:
+    Dumps node object to screen.
+* toolkit-load-node-by-ct:
+    Count characters in the body field of all nodes for the chosen content type.
+* toolkit-load-user:
+    Dumps user object to screen.
 
 -- REQUIREMENTS --
 
