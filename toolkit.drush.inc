@@ -79,7 +79,7 @@ function toolkit_drush_command() {
  */
 function drush_toolkit_load_node($nid = NULL) {
 
-  if (empty($nid) || !is_numeric($nid)) {
+  if (empty($nid) || !ctype_digit($nid)) {
     // drush_set_error always returns false.
     return drush_set_error('error', dt('@nid is not a valid node ID', array('@nid' => $nid)));
   }
@@ -183,7 +183,7 @@ function drush_toolkit_load_user($uid = NULL) {
     return drush_set_error('error', dt('Specify User ID or user name to load'));
   }
 
-  if (is_numeric($uid) && $uid > 0) {
+  if (ctype_digit($uid) && $uid > 0) {
     // Load user by user ID value.
     $user = user_load($uid);
   }
