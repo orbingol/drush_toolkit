@@ -92,7 +92,7 @@ function drush_toolkit_load_node($nid = NULL) {
     drush_print_r($node);
   }
   else {
-    return drush_set_error('error', dt('Node @nid is not available', array('@nid' => $nid)));
+    return drush_set_error('error', dt('Node ID @nid is not available', array('@nid' => $nid)));
   }
 
 }
@@ -197,7 +197,7 @@ function drush_toolkit_load_user($uid = NULL) {
     drush_print_r($user);
   }
   else {
-    return drush_set_error('error', dt('No such user (@uid)', array('@uid' => $uid)));
+    return drush_set_error('error', dt('User ID @uid is not available', array('@uid' => $uid)));
   }
 
 }
